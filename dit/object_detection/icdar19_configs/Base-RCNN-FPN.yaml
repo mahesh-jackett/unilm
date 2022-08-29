@@ -1,5 +1,5 @@
 MODEL:
-  MASK_ON: True
+  MASK_ON: False
   META_ARCHITECTURE: "GeneralizedRCNN"
   PIXEL_MEAN: [127.5, 127.5, 127.5]
   PIXEL_STD: [127.5, 127.5, 127.5]
