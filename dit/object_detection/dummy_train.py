@@ -161,7 +161,6 @@ def prepare_data():
             train_meta,
             target_indices=valid_inds,
             debug=debug,
-            data_type="val"
             ),
         )
     MetadataCatalog.get(Data_Resister_valid).set(thing_classes=thing_classes)
@@ -184,6 +183,10 @@ def setup(args):
     add_vit_config(cfg)
     cfg.merge_from_file(args.config_file)
     cfg.merge_from_list(args.opts)
+
+    # cfg.MODEL.ROI_HEADS.BATCH_SIZE_PER_IMAGE = 2
+    # cfg.MODEL.RPN.BATCH_SIZE_PER_IMAGE = 2
+
     cfg.freeze()
     default_setup(cfg, args)
     return cfg
