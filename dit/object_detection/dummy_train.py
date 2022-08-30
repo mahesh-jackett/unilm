@@ -184,8 +184,9 @@ def setup(args):
     cfg.merge_from_file(args.config_file)
     cfg.merge_from_list(args.opts)
 
-    # cfg.MODEL.ROI_HEADS.BATCH_SIZE_PER_IMAGE = 2
-    # cfg.MODEL.RPN.BATCH_SIZE_PER_IMAGE = 2
+    # cfg.MODEL.RPN.BATCH_SIZE_PER_IMAGE = 64 # 128
+    cfg.MODEL.ROI_HEADS.BATCH_SIZE_PER_IMAGE = 128 # 256
+    cfg.SOLVER.IMS_PER_BATCH = 4
 
     cfg.freeze()
     default_setup(cfg, args)
